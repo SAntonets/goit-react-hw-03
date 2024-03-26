@@ -1,17 +1,12 @@
-import { nanoid } from "nanoid";
-import Contact from "../Contact/Contact";
+import { nanoid } from 'nanoid';
+import Contact from "../Contact/Contact"; 
 
-
-const ContactList = ({ filteredContacts, handleDeleteContact }) => {
+const ContactList = ({ filteredContacts, handleDeletContact }) => {
     return (
-        
-        filteredContacts.map((contact) => {
-            <Contact id={nanoid()} name={contact.name} number={contact.number} handleDeleteContact={handleDeleteContact} />
-              
-        })
-    )
-   
-          
+        filteredContacts.map(contact => (
+            <Contact key={nanoid()} id={contact.id} name={contact.name} number={contact.number} handleDeletContact={handleDeletContact} />
+        ))
+    );
 }
 
 export default ContactList;
