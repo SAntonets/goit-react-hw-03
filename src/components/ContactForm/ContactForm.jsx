@@ -1,5 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import clsx from "clsx";
+import css from "./ContactForm.module.css"
 
 const ContactForm = ({ initialValues, handleSubmit, nameFieldId, numberFieldId }) => {
   const validationSchema = Yup.object().shape({
@@ -16,16 +18,16 @@ const ContactForm = ({ initialValues, handleSubmit, nameFieldId, numberFieldId }
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
       {({ errors, touched }) => (
-        <Form>
-          <label htmlFor={nameFieldId}>Username</label>
-          <Field type="text" name="username" id={nameFieldId} />
+        <Form className={css.form}>
+          <label className={css.formLabel} htmlFor={nameFieldId}>Username</label>
+          <Field className={css.formInput} type="text" name="username" id={nameFieldId} />
           {errors.username && touched.username && <div>{errors.username}</div>}
 
-          <label htmlFor={numberFieldId}>Number</label>
-          <Field type="tel" name="number" id={numberFieldId} />
+          <label className={css.formLabel} htmlFor={numberFieldId}>Number</label>
+          <Field className={css.formInput} type="tel" name="number" id={numberFieldId} />
           {errors.number && touched.number && <div>{errors.number}</div>}
 
-          <button type="submit">Submit</button>
+          <button className={css.formSubmitBtn} type="submit">Add contact</button>
         </Form>
       )}
     </Formik>

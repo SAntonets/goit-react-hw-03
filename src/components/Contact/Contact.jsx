@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import css from "./Contact.module.css"
+
 const Contact = ({ id, name, number, handleDeletContact }) => {
 
      const handleDelete = () => {
@@ -5,10 +8,10 @@ const Contact = ({ id, name, number, handleDeletContact }) => {
     };
 
     return (
-        <div id={id}>
-            <p>{name}</p>
-            <p>{number}</p>
-            <button onClick={handleDelete}>Delete</button> {/* Виправлена помилка з onClick */}
+        <div className={css.Contact} id={id}>
+            <div className={css.ContactData}><p>😀 {name}</p>
+            <p>☎ {number}</p></div>
+            <button className={css.ContactBTN} onClick={handleDelete}>Delete</button> {/* Виправлена помилка з onClick */}
         </div>
     );
 };
